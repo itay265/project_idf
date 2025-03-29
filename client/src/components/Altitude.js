@@ -20,10 +20,11 @@ export default function Altitude() {
   };
 
   return (
-    <div className="altitude-box">
+    <div className="sensor-box">
       <h2>Altitude</h2>
       <p>{value} ft</p>
       <button onClick={handleUpdate}>Update</button>
     </div>
   );
+  
 }
