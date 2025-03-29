@@ -1,4 +1,3 @@
-// client/src/components/VisualDisplay.jsx
 import React, { useEffect, useState } from "react";
 import { getSensor } from "../api/sensors";
 import "./VisualDisplay.css";
@@ -17,14 +16,16 @@ export default function VisualDisplay() {
     fetchData();
   }, []);
 
+  const getAdiColor = () => {
+    if (adi === 0) return "green";
+    if (adi === 100) return "blue";
+    // מעבר הדרגתי בין ירוק לכחול
+    const blue = Math.min(255, Math.max(0, Math.round((adi / 100) * 255)));
+    return `rgb(0, ${255 - blue}, ${blue})`;
+  };
+
   return (
     <div className="visual-container">
-      <div className="top-buttons">
-        <button className="active">TEXT</button>
-        <button>VISUAL</button>
-        <button>+</button>
-      </div>
-
       <div className="visual-panels">
         {/* Altitude */}
         <div className="altitude-graph">
@@ -37,7 +38,7 @@ export default function VisualDisplay() {
           </div>
         </div>
 
-        {/* HIS Compass */}
+        {/* HIS */}
         <div className="his-compass">
           <div className="his-circle">
             <div className="his-arrow" style={{ transform: `rotate(${his}deg)` }} />
@@ -49,7 +50,7 @@ export default function VisualDisplay() {
         </div>
 
         {/* ADI */}
-        <div className="adi-indicator" style={{ backgroundColor: adi === 0 ? "green" : "blue" }} />
+        <div className="adi-indicator" style={{ backgroundColor: getAdiColor() }} />
       </div>
     </div>
   );

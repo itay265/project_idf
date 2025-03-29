@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { getSensor, updateSensor } from "../api/sensors";
+import React from "react";
+import { updateSensor } from "../api/sensors";
 
-export default function Altitude() {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    getSensor("altitude").then(setValue);
-  }, []);
-
+export default function Altitude({ value, setValue }) {
   const handleUpdate = () => {
     const newValue = prompt("Enter new Altitude (0–3000):");
     const val = parseInt(newValue);
@@ -26,5 +20,4 @@ export default function Altitude() {
       <button onClick={handleUpdate}>Update</button>
     </div>
   );
-  
 }
