@@ -1,7 +1,7 @@
 {
   "name": "flight-monitor-server",
   "version": "1.0.0",
-  "description": "Backend for the flight monitor project",
+  "description": "Backend for the Flight Monitor project",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -16,6 +16,6 @@
   "devDependencies": {
     "nodemon": "^3.1.9"
   },
-  "author": "",
+  "author": "Itay R.", 
   "license": "MIT"
 }
