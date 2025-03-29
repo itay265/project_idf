@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Altitude from "./components/Altitude";
-import HIS from "./components/HIS";
-import ADI from "./components/ADI";
 import VisualDisplay from "./components/VisualDisplay";
-import { getSensor, updateSensor } from "./api/sensors";
+import InputPanel from "./components/InputPanel";
+import TextDisplay from "./components/TextDisplay";
+import { getSensor } from "./api/sensors";
 import "./App.css";
 
 function App() {
   const [mode, setMode] = useState("text");
-
   const [altitude, setAltitude] = useState(0);
   const [his, setHis] = useState(0);
   const [adi, setAdi] = useState(0);
@@ -36,17 +34,32 @@ function App() {
         >
           VISUAL
         </button>
-        <button>+</button>
+        <button
+          className={mode === "input" ? "active" : ""}
+          onClick={() => setMode("input")}
+        >
+          +
+        </button>
       </div>
 
-      {mode === "text" ? (
-        <div className="sensor-container">
-          <Altitude value={altitude} setValue={setAltitude} />
-          <HIS value={his} setValue={setHis} />
-          <ADI value={adi} setValue={setAdi} />
-        </div>
-      ) : (
+      {mode === "text" && (
+        <TextDisplay altitude={altitude} his={his} adi={adi} />
+      )}
+
+      {mode === "visual" && (
         <VisualDisplay altitude={altitude} his={his} adi={adi} />
+      )}
+
+      {mode === "input" && (
+        <InputPanel
+          altitude={altitude}
+          his={his}
+          adi={adi}
+          setAltitude={setAltitude}
+          setHis={setHis}
+          setAdi={setAdi}
+          onClose={() => setMode("visual")}
+        />
       )}
     </div>
   );

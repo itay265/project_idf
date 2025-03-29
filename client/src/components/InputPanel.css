@@ -1,0 +1,68 @@
+/* client/src/components/InputPanel.css */
+.input-panel {
+    width: 600px;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-top: 60px;
+  }
+  
+  
+  .input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .input-row label {
+    font-weight: bold;
+    width: 80px;
+  }
+  
+  .input-row input {
+    width: 200px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    text-align: right;
+    direction: rtl;
+  }
+  
+  .send-btn {
+    margin-top: 10px;
+    align-self: flex-end;
+    padding: 10px 20px;
+    background: gray;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .error-msg {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .send-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+    background-color: #444;
+  }
+  
+  
+  
