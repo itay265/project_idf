@@ -10,10 +10,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// התחברות למסד הנתונים
 connectDB();
 
-// ניתוב לנתוני חיישנים
 app.use("/api", sensorsRoutes);
 
 app.listen(PORT, () => {

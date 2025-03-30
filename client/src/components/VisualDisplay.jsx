@@ -26,14 +26,15 @@ export default function VisualDisplay() {
   return (
     <div className="visual-container">
       <div className="visual-panels">
+
         {/* Altitude */}
         <div className="altitude-graph">
           <div
-            className="altitude-line"
+            className="altitude-arrow"
             style={{ bottom: `${(altitude / 3000) * 100}%` }}
           />
           <div
-            className="altitude-arrow"
+            className="altitude-arrow-head"
             style={{ bottom: `${(altitude / 3000) * 100}%` }}
           />
           <div className="altitude-labels">
@@ -46,24 +47,25 @@ export default function VisualDisplay() {
 
         {/* HIS Compass */}
         <div className="his-compass">
-          <div className="his-circle">
+          <div className="his-arrow" />
+          <div
+            className="his-rotating-wrapper"
+            style={{
+              transform: `rotate(-${his}deg)`,
+              "--his-angle": `${his}`
+            }}
+          >
+            <div className="his-circle" />
+            <div className="his-center-dot" />
             <div className="his-label top">0</div>
             <div className="his-label right">90</div>
             <div className="his-label bottom">180</div>
             <div className="his-label left">270</div>
-            <div className="his-center-dot" />
-            <div
-              className="his-arrow"
-              style={{
-                transform: `translate(-50%, -100%) rotate(${his}deg)`
-              }}
-            />
           </div>
         </div>
 
         {/* ADI */}
-        <div className="adi-circle" style={{ backgroundColor: getAdiColor() }}>
-        </div>
+        <div className="adi-circle" style={{ backgroundColor: getAdiColor() }} />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export async function getSensor(sensor) {
     return data.value;
   } catch (error) {
     console.error(`❌ Failed to fetch ${sensor}:`, error.message);
-    return null; // מחזיר null אם יש כישלון
+    return null; 
   }
 }
 
